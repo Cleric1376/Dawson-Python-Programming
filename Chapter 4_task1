@@ -1,0 +1,10 @@
+# Michael Dawson, Python Progrmming, chapter 4, task1
+# write a code which will count by user's request
+# a user should be able to enter the beggining, end and an interval
+print("\n\tWelcome to counter\n")
+start = int(input("Please enter any number to start count: "))
+end = int(input("Please enter an ending number: "))
+interval = int(input("Please enter an interval for counting: "))
+for i in range(start, end, interval):
+  print(i)
+input("\nPress Enter to exit")
