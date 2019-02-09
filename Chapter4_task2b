@@ -1,0 +1,19 @@
+# Michael Dawson, chapter 4 task 2
+# write a code to reverse an inputed text by a user
+# solved with a While loop
+
+print("\n\tWelcome to a reverse text")
+print("\nPlease enter a text and a programm will print it from back to forth")
+
+user_text = input("\nEnter your text: ")
+new_text = ""
+position = 0
+
+while user_text:
+    new_text = user_text[position] + new_text
+    user_text = user_text[position + 1:]
+
+print("\nYour original text is - ", user_text)
+print("\nReversed text is - ", new_text)
+
+input("Press Enter to exit")
