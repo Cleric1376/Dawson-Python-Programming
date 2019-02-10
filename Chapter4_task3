@@ -1,0 +1,69 @@
+# Dawson chapter 4, task 3
+# improve Word Jumble game with hints for a user and scores
+# scores must be higher in case user doesn't ask for a hint
+#
+
+import random
+
+# create tuples one for words, second for hints
+
+WORDS = ("python",
+         "computer",
+         "array",
+         "debugging",
+         "recursion",)
+HINTS = ("snake or language",
+         "an electronic machine that stores information",
+         "a set of numbers",
+         "to eliminate errors in code",
+         "computer programming technique involving the use of a procedure that calls itself")
+
+# randomly choose word from tuple
+word = random.choice(WORDS)
+
+index = WORDS.index(word)
+hint = HINTS[index]
+# create a variable with which we'll compare user's version
+correct = word
+
+# create a jumble word
+jumble = ''
+
+while word:
+    position = random.randrange(len(word))
+    jumble += word[position]
+    word = word[:position] + word[(position + 1):]
+
+score = 100
+# start of game
+print("""
+    Welcome to "Jumble word" game.
+
+    Try to guess correctly original word
+    in case you can not guess correctly
+    you can ask for a hint, just enter word 'hint'
+
+    (remember hint will decrease your final score)
+
+    to exit game, just press Enter
+    """)
+print("\n\nHere's jumble word:", jumble)
+
+guess = input("\nTry to guess original word: ")
+while guess != correct and guess != "":
+    if guess.lower() == "hint":
+        print("\nHere's your hint:", end=" ")
+        print(hint)
+        score -= 50
+        guess = input("\nTry to guess original word: ")
+        if guess == correct:
+            break
+    print("Sorry, you are not right.")
+    guess = input("Try to guess original word: ")
+
+if guess == correct:
+    print("\nYes, that's it! Your guess is right!\n")
+    print("Your score is: ", score)
+
+print("\nThanks for a game.")
+input("\n\nPress Enter to exit.")
