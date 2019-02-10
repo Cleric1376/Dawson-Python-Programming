@@ -1,0 +1,62 @@
+# Michael Dawson, Chapter 4 task 4
+# create a game "Guess word"
+# a computer should choose a word and a user should guess it
+# user has 5 tries to ask if there a letter
+# computer should answer only Yes/No,
+# after 5 tries user should enter the word
+
+import random
+
+WORDS = ("python",
+         "computer",
+         "array",
+         "debugging",
+         "recursion")
+word = random.choice(WORDS)
+user_word = ""
+tries = 0
+letters = "qwertyuiopasdfghjklzxcvbnm"
+correct_letters = ""
+incorrect_letters = ""
+
+print("""
+    Welcome to "Guess a word" game.
+    Try to guess my hidden word
+    you have 5 tries to guess
+    if there is a letter in my word
+    then you should try to guess
+    my word
+
+    to exit game, just press Enter
+    """)
+print("\n\nHere's my hidden word: ", " * " * len(word))
+
+# part of game where a user tries to guess letters in a hidden word
+while tries != 5:
+    user_letter = input("\n\nPlease enter a letter: ")
+    tries += 1
+    if user_letter.lower() in letters and len(user_letter) == 1:
+        if user_letter.lower() in word:
+            correct_letters += user_letter.capitalize() + " "
+            print("\n\nYes, there is such letter ", user_letter.capitalize())
+        elif user_letter.lower() not in word:
+            incorrect_letters += user_letter.capitalize() + " "
+            print("\n\nNo, there is no such letter ", user_letter.capitalize())
+    else:
+        print("\nThere is no such symbol: ", user_letter, " please enter a letter\n")
+        tries -= 1  # forgive user one incorrect input
+    print("\n\nHere's my hidden word: ", " * " * len(word))
+    print("\nLetters which my word has: ", correct_letters)
+    print("Letters which my word doesn't have: ", incorrect_letters)
+
+# ending part of game which checks the guessed word
+user_word = input("\n\nPlease enter a word: ")
+if word == user_word.lower():
+    print("\n\nCongratulatios, you won!")
+    print("Your guess is right, my hidden word is ", user_word.capitalize())
+else:
+    print("\nSorry, you lose")
+    print("\n\nMy hidden word is: ", word.capitalize())
+    print("Your guessed word is: ", user_word.capitalize())
+
+input("\n\nPress Enter to exit game ")
