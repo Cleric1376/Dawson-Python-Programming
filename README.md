@@ -24,3 +24,8 @@ solved with a While Loop and two lists, the first (alist) contains words, the se
 each iteration we'll take a random word from the alist, to add in new_list, and delete it from alist
 so after all iterations our alist will be empty and condition of While loop will become False
 
+Chapter 5, task 1(second version)
+solved with a For Loop, indexing, and an append method feature that adds new item to the end of list
+each iteration we'll make a random number which we intend to use as an index number, then we use append method which
+adds the randomly choosen word from list to the end of list, at the end of the iteration we delete the first randomly
+choosen word, that's why at the begining of new iteration we have the same number of words in the list
