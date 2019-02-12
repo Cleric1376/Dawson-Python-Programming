@@ -20,4 +20,7 @@ Chapter 4, task 4
 solved
 
 Chapter 5, task 1
-solved with a While Loop
+solved with a While Loop and two lists, the first (alist) contains words, the second(new_list) is empty
+each iteration we'll take a random word from the alist, to add in new_list, and delete it from alist
+so after all iterations our alist will be empty and condition of While loop will become False
+
