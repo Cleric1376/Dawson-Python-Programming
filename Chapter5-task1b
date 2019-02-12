@@ -1,1 +1,19 @@
-# Michael Dawson Chapter 5 task 1
+# Michael Dawson, Chapter 5, task 1(second version)
+# write a code that will print words from a list in a random order without repeat
+# solved with a For Loop, indexing, and an append method feature that adds new item to the end of list
+
+ 
+import random
+ 
+alist = ["jedi", "win", "ordeal", "through", "constant", "training", "and", "peace", "in", "soul"]
+
+# each iteration we'll make a random number which we intend to use as an index number, then we use append method which
+# adds the randomly choosen word from list to the end of list, at the end of the iteration we delete the first randomly
+# choosen word, that's why at the begining of new iteration we have the same number of words in the list
+
+for i in range(len(alist)):
+  i = random.randrange(len(alist))
+  alist.append(alist[i])
+  alist.remove(alist[i])
+
+print(alist)
