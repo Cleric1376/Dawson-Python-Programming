@@ -1,0 +1,18 @@
+# Michael Dawson, Chapter 5, task 1
+# write a code that will print words from a list in a random order without repeat
+# solved with a While Loop
+
+import random
+
+alist = ["jedi", "win", "ordeal", "through", "constant", "training", "and", "peace", "in", "soul"]
+new_list = [] # we need a new empty list in which we collect words from the first list
+
+# each iteration we'll take a random word from the alist, to add in new_list, and delete it from alist
+# so after 10 iterations our alist will be empty and condition of While loop will become False
+
+while alist:
+  i = random.choice(alist)
+  new_list.append(i)
+  alist.remove(i)
+
+print(new_list)
