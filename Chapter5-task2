@@ -1,0 +1,148 @@
+# Michael Dawson, Chapter 5, task 2
+# write "Character generator" program
+# a user should be able to distribute 30 points among 4 characteristics
+# Strength, Health, Wisdom, Agility (points should be redistributable)
+
+# create a dict with needed characteristics
+character = {"Strength": 0,
+             "Health": 0,
+             "Wisdom": 0,
+             "Agility": 0}
+# create a dict with base characteristics to which will be set in case a user
+# will exceed total number of points using dictionary method dictionary.update(other_dictionary)
+base_character = {"Strength": 0,
+             "Health": 0,
+             "Wisdom": 0,
+             "Agility": 0}
+# variable with initial points for distribution
+points_to_distribute = 30
+# variable to count distributed points
+distributed_points = None
+
+# create a loop to make a main user's menu
+
+choice = None
+while choice != "0":
+	print("""Welcome to Character Generate
+	in this menu you can distribute/redistribute points
+	among your character's characteristics
+	
+	0 --- Exit menu
+	1 --- Show characteristics
+	2 --- Add/Change points
+	
+	""")
+
+	choice = input("\n\tPlease choose Menu: ")
+	if choice == "0":
+		print("\nBye, bye")
+	elif choice == "1":
+		for key, value in character.items():
+			print(key, value)
+		distributed_points = sum(character.values())
+		print("\nYou distributed - ", distributed_points, " points so far\n")
+	elif choice == "2":
+		# create another while loop to show user submenu to add/remove points
+		# to needed characteristics
+		char_choice = None
+		desired_points = None
+		while char_choice != "0":
+			print("""
+			0 --- Exit submenu
+			1 --- Choose Strength to add/remove points
+			2 --- Choose Health to add/remove points
+			3 --- Choose Wisdom to add/remove points
+			4 --- Choose Agility to add/remove points
+			5 --- Choose Return Points for later use
+			6 --- Show characteristics
+			""")
+			char_choice = input("Please enter a number to choose the needed option: ")
+			if char_choice == "0":
+				print("\nYou leave submenu for points distribution")
+			elif char_choice == "1":
+				desired_points = int(input("Please enter a number of points you want to add/remove to Strength: "))
+				character["Strength"] = desired_points
+				points_to_distribute -= desired_points
+				distributed_points = sum(character.values())
+				print("You distributed -", distributed_points, " points")
+				print("You have - ", points_to_distribute, " points to distribute")
+				for key, value in character.items():
+					print(key, value)
+				if distributed_points > 30:
+					print("\nYou've exceeded total number of points, please redistribute all points")
+					character.update(base_character)
+					points_to_distribute = 30
+					strength, health, agility, wisdom = character.items()
+					print("All points were returned to initial state: ", strength, health, agility, wisdom)
+					print("You have - ", points_to_distribute," points to distribute\n")
+			elif char_choice == "2":
+				desired_points = int(input("Please enter a number of points you want to add/remove to Health: "))
+				character["Health"] = desired_points
+				points_to_distribute -= desired_points
+				distributed_points = sum(character.values())
+				print("You distributed -", distributed_points, " points")
+				print("You have - ", points_to_distribute, " points to distribute")
+				for key, value in character.items():
+					print(key, value)
+				if distributed_points > 30:
+					print("\nYou've exceeded total number of points, please redistribute all points")
+					character.update(base_character)
+					points_to_distribute = 30
+					strength, health, agility, wisdom = character.items()
+					print("All points were returned to initial state: ", strength, health, agility, wisdom)
+					print("You have - ", points_to_distribute," points to distribute\n")
+			elif char_choice == "3":
+				desired_points = int(input("Please enter a number of points you want to add/remove to Wisdom: "))
+				character["Wisdom"] = desired_points
+				points_to_distribute -= desired_points
+				distributed_points = sum(character.values())
+				print("You distributed -", distributed_points, " points")
+				print("You have - ", points_to_distribute, " points to distribute")
+				for key, value in character.items():
+					print(key, value)
+				if distributed_points > 30:
+					print("\nYou've exceeded total number of points, please redistribute all points")
+					character.update(base_character)
+					points_to_distribute = 30
+					strength, health, agility, wisdom = character.items()
+					print("All points were returned to initial state: ", strength, health, agility, wisdom)
+					print("You have - ", points_to_distribute," points to distribute\n")
+			elif char_choice == "4":
+				desired_points = int(input("Please enter a number of points you want to add/remove to Agility: "))
+				character["Agility"] = desired_points
+				points_to_distribute -= desired_points
+				distributed_points = sum(character.values())
+				print("\nYou distributed -", distributed_points, " points")
+				print("You have - ", points_to_distribute, " points to distribute\n")
+				for key, value in character.items():
+					print(key, value)
+				if distributed_points > 30:
+					print("\nYou've exceeded total number of points, please redistribute all points")
+					character.update(base_character)
+					points_to_distribute = 30
+					strength, health, agility, wisdom = character.items()
+					print("All points were returned to initial state: ", strength, health, agility, wisdom)
+					print("You have - ", points_to_distribute," points to distribute\n")
+			elif char_choice == "5":
+				print("\nYou reset all distributed points to initial state")
+				character.update(base_character)
+				points_to_distribute = 30
+				strength, health, agility, wisdom = character.items()
+				print("All points were returned to initial state: ", strength, health, agility, wisdom)
+				print("You have - ", points_to_distribute, " points to distribute\n")
+				for key, value in character.items():
+					print(key, value)
+				if distributed_points > 30:
+					print("\nYou've exceeded total number of points, please redistribute all points")
+					character.update(base_character)
+					points_to_distribute = 30
+					strength, health, agility, wisdom = character.items()
+					print("All points were returned to initial state: ", strength, health, agility, wisdom)
+					print("You have - ", points_to_distribute," points to distribute\n")
+			elif char_choice == "6":
+				for key, value in character.items():
+					print(key, value)
+			else:
+				print("\nSorry there is no such option in the submenu - ", char_choice)
+	else:
+		print("\nSorry, can not find such submenu: ", choice)
