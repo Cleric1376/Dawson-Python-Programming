@@ -29,3 +29,8 @@ solved with a For Loop, indexing, and an append method feature that adds new ite
 each iteration we'll make a random number which we intend to use as an index number, then we use append method which
 adds the randomly choosen word from list to the end of list, at the end of the iteration we delete the first randomly
 choosen word, that's why at the begining of new iteration we have the same number of words in the list
+
+Chapter 5, task 2
+solved with a While Loop for Main User's Menu and the second While Loop inside the first for sub
+menu to distribute points to specified characteristics. For redistribution of points and setting points to initial state,
+it was used the dictionary method "dictionary.update(another_dictionary)"
