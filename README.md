@@ -34,3 +34,5 @@ Chapter 5, task 2
 solved with a While Loop for Main User's Menu and the second While Loop inside the first for sub
 menu to distribute points to specified characteristics. For redistribution of points and setting points to initial state,
 it was used the dictionary method "dictionary.update(another_dictionary)"
+
+Chapter 5 task 3 was solved by creating a dictionary, a While Loop for creating a popup game menu and defensive technique (as shown by Dawson). Defensive technique is before any alteration of dictionary we check if the key really exists by expression ( if son_name in dictionary.keys()).
