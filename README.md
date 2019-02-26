@@ -37,4 +37,4 @@ it was used the dictionary method "dictionary.update(another_dictionary)"
 
 Chapter 5 task 3 was solved by creating a dictionary, a While Loop for creating a popup game menu and defensive technique (as shown by Dawson). Defensive technique is before any alteration of dictionary we check if the key really exists by expression ( if son_name in dictionary.keys()).
 
-Improved version of previous task, now "Who's your father" is able to print a name of grandfather. Other functionality are the same as in previous task 3. Solved with a creation of dictionary key based on dictionary value (grandfather = family[grandson], so we make a key from a value). Plus used dictionary.get() method to avoid errors.
+Chapter 5 task 4 Improved version of previous program, now "Who's your father" is able to print a name of grandfather. Other functionality are the same as in previous task 3. Solved with a creation of dictionary key based on dictionary value (grandfather = family[grandson], so we make a key from a value). Plus used dictionary.get() method to avoid errors.
