@@ -1,0 +1,81 @@
+# Michael Dawson Chapter 5 task 3, elaborate a program "Who's your father"
+# now the program should allow a user to enter a name and the program should
+# print a name of grandfather. The program should use only one dictionary
+
+family = {"Luke Skywalker": "Anakin Skywalker",
+          "Anakin Skywalker": "Force(methilchlorians itself)",
+          "Ben Skywalker": "Luke Skywalker",
+          "Col Skywalker": "Ben Skywalker",
+          "Cade Skywalker": "Col Skywalker",
+          "Kylo Ren": "Han Solo",
+          "Han Solo": "Jonash Solo",
+          "Grand Master Yoda": "Yukuress Whill"}
+# need a While Loop for popup menu
+choice = None
+while choice != "0":
+	print("""
+	\n\n\tWelcome to Who's your father game\n
+	Enter a character name from the StarWars and
+	you can find out a name of his/her father\n
+	0 --- Exit
+	1 --- List of all character name's in our data base
+	2 --- List of sons
+	3 --- Search for a father
+	4 --- Search for a grandfather
+	5 --- Edit son/father entry
+	6 --- Add new son/father entry
+	7 --- Delete son/father entry
+	""")
+	choice = input("\n\nEnter your choice: ")
+	if choice == "0":
+		print("\n\tBye , bye")
+		input("\n\tPlease press Enter to exit: ")
+	elif choice == "1":
+		for entry in family.items():
+			son, father = entry
+			print(" son - ", son, " , => father ", father)
+	elif choice == "2":
+		for son in family.keys():
+			print(son, end="   ")
+	elif choice == "3":
+		son = input("\nPlease enter a name of son: ")
+		if son in family.keys():
+			print("\nThe father of ", son, " is - ", family[son])
+		else:
+			print("\nSorry the data base doesn't have information on ", son)
+	elif choice == "4":
+		grandson = input("\nPlease enter a name of grandson: ")
+		if grandson in family.keys():
+			grandfather = family[grandson]
+			print(family.get(grandfather, """\nSorry the data base doesn't have
+			information you required """))
+		else:
+			print("\nSorry the data base doesn't have information on ", grandson)
+	elif choice == "5":
+		son = input("\nPlease enter a name of son whose entry you'd like to edit : ")
+		if son in family.keys():
+			print("\nThe entry you'd like to edit is ", son, "/", family[son])
+			new_son = input("Please enter the edited name of son - ")
+			new_father = input("Please enter the edited name of father - ")
+			family[son] = new_son
+			family[son] = new_father
+			print("\nThe edited entry is son - ", new_son, " , => father ", new_father)
+		else:
+			print("\nSorry the data base doesn't have information on ", son)
+	elif choice == "6":
+		son = input("\nPlease enter a name of son whose entry you'd like to add : ")
+		if son not in family.keys():
+			father = input("\nPlease enter a name of father whose entry you'd like to add : ")
+			family[son] = father
+			print("\nThe edited entry is son - ", son, " , => father ", father)
+		else:
+			print("\nSorry the data base has already had information on ", son)
+	elif choice == "7":
+		son = input("\nPlease enter a name of son whose entry you'd like to delete: ")
+		if son in family.keys():
+			print("\nThe entry you've deleted is ", son, "/", family[son])
+			del family[son]
+		else:
+			print("\nSorry the data base doesn't have information on ", son)
+	else:
+		print("\n\nSorry, the menu doesn't have such option - ", choice)
